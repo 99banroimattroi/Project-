@@ -1,7 +1,8 @@
 from db import datahome_collection
-def add(name,price,intro,highlights,image1,image2,image3,image4,evaluate,address,utilities,note,gadgets,bedroom,bathroom,family):
+def add(name,info,price,intro,highlights,image1,image2,image3,image4,evaluate,address,utilities,note,gadgets,bedroom,bathroom,family):
     new_datahome = {
         "name": name,
+        "info":info,
         "price": price,
         "intro": intro,
         "highlights": highlights,

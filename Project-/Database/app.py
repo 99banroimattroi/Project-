@@ -3,13 +3,16 @@ import utils
 
 app = Flask(__name__)
 
+
 @app.route("/add_data", methods =["GET","POST"])
+
 def add_data():
   if request.method == "GET": 
     return render_template("home.html", methods=["GET","POST"])
   elif request.method == "POST":
     form = request.form
     n = form["name"]
+    info = form["info"]
     p = form["price"] 
     it= form["intro"]
     hl= form["highlights"]
@@ -26,7 +29,7 @@ def add_data():
     bat = form["bathroom"]
     fa = form["family"]
 
-    utils.add(n,p,it,hl,im1,im2,im3,im4,ev,adr,uti,note,gad,bed,bat,fa) 
+    utils.add(n,info,p,it,hl,im1,im2,im3,im4,ev,adr,uti,note,gad,bed,bat,fa) 
     return "OK !"
 
 if __name__ == '__main__':
