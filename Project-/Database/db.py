@@ -12,13 +12,13 @@ client = MongoClient(uri)
 db = client.test
 
 #3. get collection
-datahome_collection = db["luxhome_data"]
+datahome_collection = db["data_luxhome"]
 
 #4. create new document
-# new_datahomelux = {}
+# new_data = {}
 
 #5. Insert new documnet into collection
-# datahome_collection.insert_one(new_datahomelux)
+# datahome_collection.insert_one(new_data)
 
 #6. Close connection
 def close():
