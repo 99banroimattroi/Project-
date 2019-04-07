@@ -13,12 +13,16 @@ db = client.test
 
 #3. get collection
 datahome_collection = db["data_luxhome"]
+datafeedback_collection = db["feedback"]
+
 
 #4. create new document
 # new_data = {}
+# new_feedback ={}
 
 #5. Insert new documnet into collection
 # datahome_collection.insert_one(new_data)
+# datafeedback_collection.insert_one(new_feedback)
 
 #6. Close connection
 def close():
