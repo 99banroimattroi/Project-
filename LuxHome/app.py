@@ -38,7 +38,21 @@ def contact():
 def details(id):
   dt = utils.get_by_id(id)
   introduction = utils.cleanhtml(dt["introduction"])
-  return render_template("detail.html", introduction = introduction, name = dt["name"])
+  s_note = utils.cleanhtml(dt["special_note"])
+  u_fts = utils.cleanhtml(dt["unique_features"])
+  m_f = dt["Phi_tang_them"]
+  min_ = dt["So_dem_toi_thieu"]
+  max_ = dt["So_dem_toi_da"]
+  c_in = dt["checkin_time"]
+  c_out = dt["checkout_time"]
+  add = dt["full_address"]
+  m_t = dt['Mon_to_thurs']
+  f_s = dt["Fri_to_sun"]
+  pt_1 = dt["photos_1"]
+  pt_2 = dt["photos_2"]
+  pt_3 = dt["photos_3"]
+  pt_4 = dt["photos_4"]
+  return render_template("detail.html", introduction = introduction, name = dt["name"], pt_1 = pt_1, pt_2 = pt_2, pt_3 = pt_3, pt_4 = pt_4, s_note = s_note, u_f = u_fts, m_t = m_t, f_s = f_s, m_f = m_f, min = min_, max = max_, c_in = c_in, c_out = c_out, add = add)
 
 
 app.config["SECRET_KEY"] = "fagsdhkfj shkfdjhkhkjh"
@@ -57,6 +71,15 @@ def login():
     else:
       session["token"] = username
       return render_template("admin.html")
+
+
+@app.route("/logout", methods = ["GET", "POST"])
+def logout():
+  if request.method == "GET":
+    del session["token"]
+    return "ok"
+
+
 
 @app.route("/admin")
 def admin():
@@ -90,53 +113,53 @@ def fbfullin4():
 def fbnotfullin4():
   return render_template("fbnotfullin4.html")
 
-# @app.route("/add_data", methods =["GET","POST"])
-# def add_data():
-#   if request.method == "GET": 
-#     return render_template("add_database.html", methods=["GET","POST"])
-#   elif request.method == "POST":
-#     form = request.form
-#     name = form["name"]
-#     summary =  form["summary"]
-#     introduction = form["introduction"]
-#     unique_features = form["unique_features"]
-#     special_note = form["special_note"]
-#     rating = form["rating"]
-#     featured_photo = form["featured_photo"]
-#     Mon_to_thurs = form["Mon_to_thurs"]
-#     Fri_to_sun = form["Fri_to_sun"]
-#     Phi_tang_them = form["Phi_tang_them"]
-#     So_dem_toi_thieu = form["So_dem_toi_thieu"]
-#     So_dem_toi_da = form["So_dem_toi_da"]
-#     checkin_time = form["checkin_time"]
-#     checkout_time = form["checkout_time"]
-#     address_line = form["address_line"]
-#     search_data = form["search_data"]
-#     city = form["city"]
-#     state = form["state"]
-#     country = form["country"]
-#     full_address = form["full_address"]
-#     photos_1 = form["photos_1"]
+@app.route("/add_data", methods =["GET","POST"])
+def add_data():
+  if request.method == "GET": 
+    return render_template("add_database.html", methods=["GET","POST"])
+  elif request.method == "POST":
+    form = request.form
+    name = form["name"]
+    summary =  form["summary"]
+    introduction = form["introduction"]
+    unique_features = form["unique_features"]
+    special_note = form["special_note"]
+    rating = form["rating"]
+    featured_photo = form["featured_photo"]
+    Mon_to_thurs = form["Mon_to_thurs"]
+    Fri_to_sun = form["Fri_to_sun"]
+    Phi_tang_them = form["Phi_tang_them"]
+    So_dem_toi_thieu = form["So_dem_toi_thieu"]
+    So_dem_toi_da = form["So_dem_toi_da"]
+    checkin_time = form["checkin_time"]
+    checkout_time = form["checkout_time"]
+    address_line = form["address_line"]
+    search_data = form["search_data"]
+    city = form["city"]
+    state = form["state"]
+    country = form["country"]
+    full_address = form["full_address"]
+    photos_1 = form["photos_1"]
 
-#     photos_2 = form["photos_2"]
+    photos_2 = form["photos_2"]
 
-#     photos_3 = form["photos_3"]
+    photos_3 = form["photos_3"]
 
-#     photos_4 = form["photos_4"]
+    photos_4 = form["photos_4"]
 
-#     photos_5 = form["photos_5"]
+    photos_5 = form["photos_5"]
  
-#     photos_6 = form["photos_6"]
+    photos_6 = form["photos_6"]
   
-#     photos_7 = form["photos_7"]
+    photos_7 = form["photos_7"]
 
-#     photos_8 = form["photos_8"]
+    photos_8 = form["photos_8"]
 
   
 
-#     utils.add_data(name,summary,introduction,unique_features,special_note,rating,featured_photo,Mon_to_thurs,Fri_to_sun,Phi_tang_them,So_dem_toi_thieu,So_dem_toi_da,checkin_time,checkout_time,address_line,search_data,city,state,country,full_address,photos_1,photos_2,photos_3,photos_4,photos_5,photos_6,photos_7,photos_8) 
+    utils.add_data(name,summary,introduction,unique_features,special_note,rating,featured_photo,Mon_to_thurs,Fri_to_sun,Phi_tang_them,So_dem_toi_thieu,So_dem_toi_da,checkin_time,checkout_time,address_line,search_data,city,state,country,full_address,photos_1,photos_2,photos_3,photos_4,photos_5,photos_6,photos_7,photos_8) 
 
-#     return "OK !"
+    return "OK !"
 
 if __name__ == '__main__':
   app.run(debug=True)
