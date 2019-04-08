@@ -40,6 +40,7 @@ def details(id):
   introduction = utils.cleanhtml(dt["introduction"])
   s_note = utils.cleanhtml(dt["special_note"])
   u_fts = utils.cleanhtml(dt["unique_features"])
+  f_t = dt["featured_photo"]
   m_f = dt["Phi_tang_them"]
   min_ = dt["So_dem_toi_thieu"]
   max_ = dt["So_dem_toi_da"]
@@ -52,7 +53,7 @@ def details(id):
   pt_2 = dt["photos_2"]
   pt_3 = dt["photos_3"]
   pt_4 = dt["photos_4"]
-  return render_template("detail.html", introduction = introduction, name = dt["name"], pt_1 = pt_1, pt_2 = pt_2, pt_3 = pt_3, pt_4 = pt_4, s_note = s_note, u_f = u_fts, m_t = m_t, f_s = f_s, m_f = m_f, min = min_, max = max_, c_in = c_in, c_out = c_out, add = add)
+  return render_template("detail.html", introduction = introduction, name = dt["name"], pt_1 = pt_1, pt_2 = pt_2, pt_3 = pt_3, pt_4 = pt_4, s_note = s_note, u_f = u_fts, m_t = m_t, f_s = f_s, m_f = m_f, min = min_, max = max_, c_in = c_in, c_out = c_out, add = add, f_t = f_t)
 
 
 app.config["SECRET_KEY"] = "fagsdhkfj shkfdjhkhkjh"
